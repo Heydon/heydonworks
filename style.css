@@ -13,7 +13,7 @@ Domain Path: /languages/
 /** Variables
 * -------------------------------------------------------------- 
 
-/* 
+/*
 line-height = 1.5
 reduced line-height = 1.125
 action color = #802626
@@ -94,15 +94,6 @@ a:before { padding-right: 0.125em }
 	content:'\E002';
 	font-size: 0.85em;
 	vertical-align: super;
-}
-
-/**
-* LINKS TO SECURE PAGES
------------------------------
-*/
-
-[href^="https:"]:before {
-	content:'\E017';
 }
 
 /**
@@ -200,7 +191,7 @@ a:before { padding-right: 0.125em }
 
 [href$=".rss"]:before, 
 [href$="rss.xml"]:before, 
-[href*="/feed/"]:before,
+[href*="/feed"]:before,
 [href*="/rss/"]:before {
 	content: '\E018';
 }
@@ -330,11 +321,15 @@ a:hover, a:active {
 	color: #4b1a1a;
 }
 
-p a, article footer a {
+p a, article footer a, .project a {
 	border-bottom: 1px solid;
 }
 
-p a:hover, p a:focus, article footer a:hover, article footer a:focus {
+article footer a {
+    white-space: nowrap;
+}
+
+p a:hover, p a:focus, article footer a:hover, article footer a:focus, .project a:hover, .project a:focus {
 	border-bottom: 2px solid;
 }
 
@@ -371,6 +366,10 @@ pre {
 	font-size: 0.85em;
     border-top: 3px dashed;
     border-bottom: 3px dashed;
+}
+
+del {
+    text-decoration: line-through;
 }
 
 sup, sub {
@@ -428,6 +427,11 @@ p {
 	line-height: 1.5;
 }
 
+br {
+    margin: 0;
+    line-height: 0;
+}
+
 * + * {
 	margin-top: 1.5em;
 }
@@ -444,7 +448,7 @@ h1 + p {
 	display: block;
 	font-family: Bitter, serif;
 	font-style: italic;
-	font-size: 2em;
+	font-size: 1.5em;
 	margin-top: 0;
 	line-height: 1.125;
 	text-align: center;
@@ -457,10 +461,6 @@ h1 + p a:before {
 h1, h2, h3, h4 {
 	font-weight: 700;
 	line-height: 1.125;
-}
-
-* + h1, * + h2, * + h3 {
-	margin-top: 2.5rem;
 }
 
 h1 {
@@ -487,8 +487,21 @@ li, dt, dd, option {
 }
 
 blockquote, figure {
-	font-size: 1.25em;
-	margin: 1.5em;
+	font-size: 0.85em;
+    margin: 25px 0;
+	margin: 1.5rem 0;
+}
+
+blockquote footer {
+    text-align: right;
+    margin-top: 0.75em;
+}
+
+figure {
+    padding: 1.5em 0;
+    text-align: center;
+    border-top: 3px solid;
+    border-bottom: 3px solid;
 }
 
 blockquote p, figcaption {
@@ -506,10 +519,23 @@ blockquote footer:before {
 /* main
 ------------------------------------------------------ */
 
-main > div {
+[role="main"] > div, [role="contentinfo"] > div {
 	max-width: 800px;
-    padding: 0 0.75em;
+    padding: 0 1em;
 	margin: 3em auto 0;
+}
+
+[role="contentinfo"] > div {
+    margin-top: 0;
+}
+
+[role="contentinfo"] a {
+    color: #fff;
+}
+
+[role="note"] {
+    padding: 1.5em;
+    border: 2px solid;
 }
 
 /* footer
@@ -520,17 +546,30 @@ main > div {
 	color: #fff;
 	text-align: center;
 	padding: 3em;
+    margin-top: 3em;
 }
 
 [role="contentinfo"] * {
 	text-align: inherit;
 }
 
+[role="contentinfo"] a {
+    color: #fff;
+}
+
 /* lists / navigation
 ------------------------------------------------------ */
 
+ul {
+    margin-left: 2em;
+}
+
+nav ul {
+    margin-left: 0;
+}
+
 li {
-	list-style: disc inside;
+	list-style: disc outside;
 }
 
 dt {
@@ -560,6 +599,10 @@ dt {
 	font-family: Cog, Haymaker;
 }
 
+[aria-label="site links"] li:nth-last-child(2) {
+    width: 25%;
+}
+
 [aria-label="site links"] a {
 	color: #fff;
 }
@@ -567,7 +610,6 @@ dt {
 [aria-label="site links"] a:hover,
 [aria-label="site links"] a:focus {
 	text-decoration: underline;
-	outline: none;
 }
 
 [href="#main"] {
@@ -575,6 +617,7 @@ dt {
 	top: -100px;
 	right: 0.5em;
 	color: #fff;
+    font-size: 0.85em;
 }
 
 [href="#main"]:focus {
@@ -593,6 +636,10 @@ dt {
 	height: 0.5em;
 }
 
+.lt-ie9 [aria-label="site links"]:after {
+    background: none;
+}
+
 [aria-label="article navigation"] {
     font-size: 1.5em;
     text-align: center;
@@ -601,37 +648,50 @@ dt {
 [aria-label="article navigation"] a {
     padding: 0 0.5em;
     font-style: italic;
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+    line-height: 1.125;
+    text-align: left;
+    vertical-align: middle;
+    margin-top: 0;
 }
 
-[aria-label="article navigation"] a:before, 
-[aria-label="article navigation"] a:after {
-    font-style: normal;
+[aria-label="article navigation"] a + a {
+    text-align: right;
+}
+
+[aria-label="article navigation"] h2 {
+    font-size: 1em;
+}
+
+[aria-label="article navigation"] a:only-child {
+    padding: 0;
+    width: 100%;
+    text-align: center;
 }
 
 /* buttons
 ------------------------------------------------------ */
 
-button, .button-shaped, [type="submit"] {
+button, a.button-shaped, [type="submit"] {
 	display: inline-block;
 	font-size: 1.25em;
 	background: #802626;
 	color: #fff;
-	padding: 0.25em 1em;
-	margin: 0.75em;
+	padding: 0.5em 2em;
+	margin: 0 0.75em 0.75em 0;
 	cursor: pointer;
+    border: 4px solid #222;
 }
 
 button:hover, button:focus, 
 .button-shaped:hover, .button-shaped:focus, 
 [type="submit"]:hover, [type="submit"]:focus
 {
-	background: #4b1a1a;
-}
-
-button:focus, 
-.button-shaped:focus, 
-[type="submit"]:focus {
-	border: 2px solid !important;
+    text-align: left;
+    outline: 2px solid #222;
+    border: 4px solid #222;
 }
 
 button::-moz-focus-inner,
@@ -682,7 +742,7 @@ form div {
 }
 
 legend {
-	font-size: 1.25rem;
+	font-size: 1.25em;
 	font-style: italic;
 	padding: 0 0.5em;
 	background: #222;
@@ -754,7 +814,7 @@ img {
 /** Permalinks
 * -------------------------------------------------------------- */
 
-article footer {
+article > footer {
 	font-size: 1.5em;
 	text-align: center;
 	margin-top: 0;
@@ -767,6 +827,27 @@ article > div {
 
 article footer time {
 	font-size: 1em;
+}
+
+/** Projects
+* -------------------------------------------------------------- */
+
+.project {
+    font-size: 0.85em;
+}
+
+.project h2 {
+    text-align: left;
+}
+
+[aria-label="external links"] a + a {
+    margin-left: 2em;
+}
+
+.project + .project {
+    margin-top: 3em;
+    padding-top: 3em;
+    border-top: 0.55em solid;
 }
 
 /* utility classes
@@ -786,6 +867,16 @@ article footer time {
 	margin-top: 0;
 }
 
+/* DISQUS
+------------------------------------------------------ */
+
+.comments {
+    border-top: 0.5em solid;
+    border-bottom: 0.25em solid;
+    padding: 1.5em 0;
+    margin-top: 3em;
+}
+
 /* break points
 ------------------------------------------------------ */
 
@@ -797,6 +888,18 @@ article footer time {
 
     [aria-label="site links"] li:last-child {
         width: 20%;
+    }
+
+    code {
+        font-size: 1em;
+    }
+
+}
+
+@media all and (max-width: 800px) {
+
+    ol li {
+        width: 45%;
     }
 
 }
@@ -814,19 +917,66 @@ article footer time {
 
     [aria-label="site links"] li {
         display: inline-block;
-        width: auto;
+        width: auto !important;
+    }
+
+    [aria-label="site links"] a {
+        padding: 0.5em;
     }
 
     [aria-label="site links"] li:first-child {
-        width: 100%;
+        width: 100% !important;
     }
 
     h1 {
         font-size: 3em;
     }
 
+    h2 {
+        font-size: 2em;
+    }
+
+    h3 {
+        font-size: 1.5em;
+    }
+
+    h4 {
+        font-size: 1em;
+    }
+
     pre {
         border-width: 2px;
     }
+
+
+    [aria-label="article navigation"] {
+        font-size: 1.125em;
+    }
+
+}
+
+@media all and (max-width: 600px) {
+    
+    ol li {
+        display: block;
+        width: auto;
+    }
+
+}
+
+@media all and (max-width: 450px) {
+    
+    footer [aria-hidden] {
+        display: none;
+    }
+
+    [aria-label="article navigation"] a {
+        display: block;
+        width: auto;
+        margin: 0.5em;
+        padding: 0;
+    }
+
+
 
 }

@@ -17,13 +17,12 @@ function heydonworks_paging_nav() {
 		return;
 	}
 	?>
-	<nav class="navigation paging-navigation" role="navigation" aria-label="article navigation">
-			<?php if ( get_next_posts_link() ) : ?>
-				<?php next_posts_link( __( 'Older posts', 'heydonworks' ) ); ?>
-			<?php endif; ?>
-
+	<nav role="navigation" aria-label="article navigation">
 			<?php if ( get_previous_posts_link() ) : ?>
-				<?php previous_posts_link( __( 'Newer posts', 'heydonworks' ) ); ?>
+				<?php previous_posts_link( __( 'Newer articles', 'heydonworks' ) ); ?>
+			<?php endif; ?>
+			<?php if ( get_next_posts_link() ) : ?>
+				<?php next_posts_link( __( 'Older articles', 'heydonworks' ) ); ?>
 			<?php endif; ?>
 		</div>
 	</nav>
@@ -46,8 +45,8 @@ function heydonworks_post_nav() {
 	?>
 	<nav role="navigation" aria-label="article navigation">
 		<?php
-			previous_post_link( '%link', _x( '%title', 'Previous post link', 'heydonworks' ) );
-			next_post_link(     '%link',     _x( '%title', 'Next post link',     'heydonworks' ) );
+			previous_post_link( '%link', _x( '%title', 'Previous post', 'heydonworks' ) );
+			next_post_link(     '%link',     _x( '%title', 'Next post',     'heydonworks' ) );
 		?>
 	</nav>
 	<?php

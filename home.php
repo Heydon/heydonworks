@@ -8,12 +8,15 @@
 get_header(); ?>
 
 <div>
-	<h1><?php bloginfo( 'name' ); ?></h1>
-	<p>The works, workings and reckonings of <a href="http://twitter.com/heydonworks">Heydon</a></p>
+	<h1 class="main-logo"><?php bloginfo( 'name' ); ?></h1>
+	<p>The works and workings of <a href="http://twitter.com/heydonworks">Heydon</a>. A blog about interaction design and creativity.</p>
 	<h2>Latest Articles</h2>
 </div>
 
 <ol aria-label="articles by date, newest first">
+
+	<?php query_posts('cat=-3'); ?>
+
 	<?php if ( have_posts() ) : ?>
 
 		<?php /* Start the Loop */ ?>

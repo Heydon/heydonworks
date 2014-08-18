@@ -15,14 +15,15 @@ lang="en-GB"> <![endif]-->
 <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<link rel="icon" href="favico.png" type="image/png" />
 	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<!--[if lt IE 9]>
-		<script src="<?php bloginfo( 'stylesheet_directory' ); ?>js/html5shiv.js" media="all"></script>
-		<script src="<?php bloginfo( 'stylesheet_directory' ); ?>js/html5shiv-printshiv.js" media="print"></script>
-		<script src="<?php bloginfo( 'stylesheet_directory' ); ?>js/selectivizr-min.js"></script>
+		<script src="<?php bloginfo( 'stylesheet_directory' ); ?>/js/html5shiv.js" media="all"></script>
+		<script src="<?php bloginfo( 'stylesheet_directory' ); ?>/js/html5shiv-printshiv.js" media="print"></script>
+		<script src="<?php bloginfo( 'stylesheet_directory' ); ?>/js/selectivizr-min.js"></script>
 	<![endif]-->
 	<link href='http://fonts.googleapis.com/css?family=Bitter:400,400italic,700' rel='stylesheet' type='text/css'>
 	<?php wp_head(); ?>

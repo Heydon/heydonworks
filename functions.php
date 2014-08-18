@@ -156,3 +156,24 @@ function new_excerpt_more( $more ) {
 	return '&hellip;';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
+
+/**
+ * Put rels on pager
+ */
+
+add_filter('next_posts_link_attributes', 'next_posts_link_attributes');
+add_filter('previous_posts_link_attributes', 'previous_posts_link_attributes');
+
+function next_posts_link_attributes() {
+    return 'rel="next"';
+}
+
+function previous_posts_link_attributes() {
+    return 'rel="prev"';
+}
+
+/**
+ * Stop linking post images
+ */
+
+update_option('image_default_link_type', 'none');
