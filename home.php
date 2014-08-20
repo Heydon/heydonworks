@@ -13,12 +13,9 @@ get_header(); ?>
 	<h2>Latest Articles</h2>
 </div>
 
-<ol aria-label="articles by date, newest first">
-
-	<?php query_posts('cat=-3'); ?>
-
+<ol aria-label="articles by date, newest first" id="latest">
+	
 	<?php if ( have_posts() ) : ?>
-
 		<?php /* Start the Loop */ ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 
@@ -36,7 +33,7 @@ get_header(); ?>
 
 	<?php else : ?>
 
-		<?php get_template_part( 'content', 'none' ); ?>
+		<?php  get_template_part( 'content', 'none' ); ?>
 
 	<?php endif; ?>
 </ol>

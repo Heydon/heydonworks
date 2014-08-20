@@ -177,3 +177,19 @@ function previous_posts_link_attributes() {
  */
 
 update_option('image_default_link_type', 'none');
+
+/**
+ * Modify home loop to exclude category
+ */
+
+function home_exclude_category( $wp_query ) { 
+
+	if ( is_home() ) {
+
+    $excluded = array( '-3' ); 
+    // Note that this is a cleaner way to write: $wp_query->set('category__not_in', $excluded);
+   set_query_var( 'category__not_in', $excluded );
+}
+ 
+}
+add_action( 'pre_get_posts', 'home_exclude_category' );

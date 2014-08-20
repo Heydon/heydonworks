@@ -12,7 +12,7 @@
 		<h3><a href="<?php the_permalink();?>" rel="bookmark"><?php the_title(); ?></a></h3>
 		<footer>
 			<time datetime="<?php echo get_the_date('Y-m-d'); ?>">
-				<?php echo get_the_date('D M Y'); ?>
+				<?php echo get_the_date('j M Y'); ?>
 			</time>
 		</footer>
 		<?php the_excerpt(); ?>

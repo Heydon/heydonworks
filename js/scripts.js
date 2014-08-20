@@ -42,4 +42,4 @@
 
 })( jQuery );
 
-jQuery("h1.main-logo").fitText(0.6);
+jQuery("h1.main-logo").fitText(0.66);

@@ -108,18 +108,6 @@ a:before { padding-right: 0.125em }
 	content: '\E006';
 }
 
-/* help pages */
-
-[rel="help"]:before {
-	content: '\E015';
-}
-
-/* tag archives */
-
-[rel="tag"]:before {
-	content: '\E016';
-}
-
 /* permalinks */
 
 [rel="bookmark"]:before {
@@ -148,18 +136,6 @@ a:before { padding-right: 0.125em }
 	content: '\E007';
 }
 
-/* telephone */
-
-[href^="tel:"]:before {
-	content: '\E008';
-}
-
-/* source code */
-
-[href^="view-source:"]:before {
-	content: '\E00D';
-}
-
 /**
 * DOCUMENTS
 -----------------------------
@@ -169,19 +145,6 @@ a:before { padding-right: 0.125em }
 
 [href$=".pdf"]:before {
 	content: '\E001';
-}
-
-/* .doc */
-
-[href$=".doc"]:before {
-	content: '\E020';
-}
-
-/* text */
-
-[href$=".txt"]:before, 
-[href$=".md"]:before {
-	content: '\E00C';
 }
 
 /**
@@ -230,18 +193,6 @@ a:before { padding-right: 0.125em }
 
 [href*="facebook.com/"]:before {
 	content: '\E010';
-}
-
-/* linkedin */
-
-[href*="linkedin.com/"]:before {
-	content: '\E011';
-}
-
-/* google+ */
-
-[href*="plus.google.com/"]:before {
-	content: '\E012';
 }
 
 /* youtube */
@@ -438,6 +389,7 @@ br {
 
 body {
 	margin-top: 0;
+    overflow-x: hidden;
 }
 
 p + p {
@@ -523,6 +475,7 @@ blockquote footer:before {
 	max-width: 800px;
     padding: 0 1em;
 	margin: 3em auto 0;
+    overflow: hidden;
 }
 
 [role="contentinfo"] > div {
@@ -667,7 +620,8 @@ dt {
 
 [aria-label="article navigation"] a:only-child {
     padding: 0;
-    width: 100%;
+    display: block;
+    width: auto;
     text-align: center;
 }
 
